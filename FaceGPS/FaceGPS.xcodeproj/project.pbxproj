@@ -26,6 +26,7 @@
 		CA6AF97D2144CF5F00D068E2 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9772144CF5F00D068E2 /* HomeModels.swift */; };
 		CA6AF97E2144CF5F00D068E2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9782144CF5F00D068E2 /* HomeViewController.swift */; };
 		CA6AF97F2144CF5F00D068E2 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9792144CF5F00D068E2 /* HomeInteractor.swift */; };
+		CA6AF9832145825600D068E2 /* Notificationable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9822145825600D068E2 /* Notificationable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		CA6AF9772144CF5F00D068E2 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		CA6AF9782144CF5F00D068E2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CA6AF9792144CF5F00D068E2 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		CA6AF9822145825600D068E2 /* Notificationable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificationable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		CA6AF93F214438EF00D068E2 /* FaceGPS */ = {
 			isa = PBXGroup;
 			children = (
+				CA6AF9812145824100D068E2 /* Protocols */,
 				CA6AF96D2144A7E100D068E2 /* Common */,
 				CA6AF9602144498200D068E2 /* Scenes */,
 				CA6AF940214438EF00D068E2 /* AppDelegate.swift */,
@@ -165,6 +168,14 @@
 				CA6AF9792144CF5F00D068E2 /* HomeInteractor.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		CA6AF9812145824100D068E2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CA6AF9822145825600D068E2 /* Notificationable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +291,7 @@
 				CA6AF96A214449C900D068E2 /* FaceDetectionModels.swift in Sources */,
 				CA6AF968214449C900D068E2 /* FaceDetectionWorker.swift in Sources */,
 				CA6AF969214449C900D068E2 /* FaceDetectionRouter.swift in Sources */,
+				CA6AF9832145825600D068E2 /* Notificationable.swift in Sources */,
 				CA6AF9712144A9BB00D068E2 /* Errors.swift in Sources */,
 				CA6AF96B214449C900D068E2 /* FaceDetectionViewController.swift in Sources */,
 				CA6AF97D2144CF5F00D068E2 /* HomeModels.swift in Sources */,

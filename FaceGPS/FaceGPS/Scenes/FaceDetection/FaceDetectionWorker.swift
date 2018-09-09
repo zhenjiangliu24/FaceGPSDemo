@@ -14,7 +14,7 @@ import UIKit
 import AVKit
 import Vision
 
-class FaceDetectionWorker: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate
+class FaceDetectionWorker: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, Notificationable
 {
     // AVCapture variables to hold sequence data
     var session: AVCaptureSession?
@@ -279,7 +279,7 @@ class FaceDetectionWorker: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
         faceLandmarksShapeLayer.shadowRadius = 5
         
         overlayLayer.addSublayer(faceRectangleShapeLayer)
-        faceRectangleShapeLayer.addSublayer(faceLandmarksShapeLayer)
+        //faceRectangleShapeLayer.addSublayer(faceLandmarksShapeLayer)
         rootLayer.addSublayer(overlayLayer)
         
         detectionOverlayLayer = overlayLayer
@@ -397,6 +397,8 @@ class FaceDetectionWorker: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
             else {
                 return
         }
+        faceLandmarksShapeLayer.opacity = 1
+        faceRectangleShapeLayer.opacity = 1
         
         CATransaction.begin()
         
@@ -417,6 +419,16 @@ class FaceDetectionWorker: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
         self.updateLayerGeometry()
         
         CATransaction.commit()
+    }
+    
+    fileprivate func hideTrackRect() {
+        if let detectedFaceRectangleShapeLayer = detectedFaceRectangleShapeLayer {
+            detectedFaceRectangleShapeLayer.opacity = 0
+        }
+        
+        if let detectedFaceLandmarksShapeLayer = detectedFaceLandmarksShapeLayer {
+            detectedFaceLandmarksShapeLayer.opacity = 0
+        }
     }
     
     // MARK: AVCaptureVideoDataOutputSampleBufferDelegate
@@ -485,9 +497,11 @@ class FaceDetectionWorker: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
         
         if newTrackingRequests.isEmpty {
             // Nothing to track, so abort.
+            postNotification(name: .detectFace, userInfo: ["detected": false])
             return
         }
         
+        postNotification(name: .detectFace, userInfo: ["detected": true])
         // Perform face landmark tracking on detected faces.
         var faceLandmarkRequests = [VNDetectFaceLandmarksRequest]()
         
@@ -532,6 +546,8 @@ class FaceDetectionWorker: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
                 try imageRequestHandler.perform(faceLandmarkRequests)
             } catch let error as NSError {
                 NSLog("Failed to perform FaceLandmarkRequest: %@", error)
+            } catch {
+                NSLog("Failed to perform FaceLandmarkRequest: %@")
             }
         }
     }

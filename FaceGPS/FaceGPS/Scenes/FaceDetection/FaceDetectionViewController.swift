@@ -12,6 +12,18 @@
 
 import UIKit
 
+enum FaceDetectStatus: String
+{
+    case faceDetected = "face detected"
+    case noFaceDetected = "no face detected"
+}
+
+extension FaceDetectStatus {
+    init(detected: Bool) {
+        self = detected ? .faceDetected : .noFaceDetected
+    }
+}
+
 protocol FaceDetectionDisplayLogic: class
 {
     func displayCapture(viewModel: FaceDetection.SetUpFaceCaptureSession.ViewModel)
@@ -25,12 +37,23 @@ class FaceDetectionViewController: UIViewController, FaceDetectionDisplayLogic
     var router: (NSObjectProtocol & FaceDetectionRoutingLogic & FaceDetectionDataPassing)?
     
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var detectMessageLabel: UILabel!
     
     // Layer UI for drawing Vision results
     var rootLayer: CALayer?
     var detectionOverlayLayer: CALayer?
     var detectedFaceRectangleShapeLayer: CAShapeLayer?
     var detectedFaceLandmarksShapeLayer: CAShapeLayer?
+    
+    var faceDetectStatus: FaceDetectStatus = .noFaceDetected {
+        didSet {
+            guard oldValue != faceDetectStatus else { return }
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.detectMessageLabel.text = self?.faceDetectStatus.rawValue
+            }
+        }
+    }
     
     // MARK: Object lifecycle
     
@@ -91,9 +114,13 @@ class FaceDetectionViewController: UIViewController, FaceDetectionDisplayLogic
     {
         super.viewDidLoad()
         
+        setupDetectObserver()
+        
         setupCaptureSession()
         
         setupVision()
+        
+        self.previewView.bringSubview(toFront: detectMessageLabel)
         
         startCapture()
     }
@@ -102,6 +129,7 @@ class FaceDetectionViewController: UIViewController, FaceDetectionDisplayLogic
         super.viewWillDisappear(animated)
         
         stopCapture()
+        removeDetectObserver()
     }
     
     
@@ -130,6 +158,30 @@ class FaceDetectionViewController: UIViewController, FaceDetectionDisplayLogic
         let request = FaceDetection.stopFaceCaptureAndDection.Request()
         interactor?.stopCapture(request: request)
     }
+    
+    func setupDetectObserver()
+    {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(faceDetected(_:)),
+                                               name: AppNotification.detectFace.notificationName,
+                                               object: nil)
+    }
+    
+    func removeDetectObserver()
+    {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: AppNotification.detectFace.notificationName,
+                                                  object: nil)
+    }
+    
+    @objc func faceDetected(_ notification: NSNotification)
+    {
+        guard let isFaceDetected = notification.userInfo?["detected"] as? Bool else { return }
+        
+        let newStatus = FaceDetectStatus(detected: isFaceDetected)
+        faceDetectStatus = newStatus
+    }
+    
     
     // MARK: FaceDetectionDisplayLogic
     
