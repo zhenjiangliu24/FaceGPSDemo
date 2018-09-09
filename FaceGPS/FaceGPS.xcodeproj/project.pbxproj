@@ -30,6 +30,8 @@
 		CA6AF97E2144CF5F00D068E2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9782144CF5F00D068E2 /* HomeViewController.swift */; };
 		CA6AF97F2144CF5F00D068E2 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9792144CF5F00D068E2 /* HomeInteractor.swift */; };
 		CA6AF9832145825600D068E2 /* Notificationable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9822145825600D068E2 /* Notificationable.swift */; };
+		CAA9CB042145A62E00DA0CC8 /* LocationStoreWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB032145A62E00DA0CC8 /* LocationStoreWorker.swift */; };
+		CAA9CB072145A7DB00DA0CC8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB062145A7DB00DA0CC8 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		CA6AF9782144CF5F00D068E2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CA6AF9792144CF5F00D068E2 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		CA6AF9822145825600D068E2 /* Notificationable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificationable.swift; sourceTree = "<group>"; };
+		CAA9CB032145A62E00DA0CC8 /* LocationStoreWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStoreWorker.swift; sourceTree = "<group>"; };
+		CAA9CB062145A7DB00DA0CC8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DB70F6C21F8EB2373880C2FB /* Pods_FaceGPS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceGPS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,8 +144,10 @@
 		CA6AF93F214438EF00D068E2 /* FaceGPS */ = {
 			isa = PBXGroup;
 			children = (
+				CAA9CB052145A7C600DA0CC8 /* Models */,
 				CA6AF9812145824100D068E2 /* Protocols */,
 				CA6AF96D2144A7E100D068E2 /* Common */,
+				CAA9CB022145A5F500DA0CC8 /* Workers */,
 				CA6AF9602144498200D068E2 /* Scenes */,
 				CA6AF940214438EF00D068E2 /* AppDelegate.swift */,
 				CA6AF944214438EF00D068E2 /* Main.storyboard */,
@@ -213,6 +219,22 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		CAA9CB022145A5F500DA0CC8 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				CAA9CB032145A62E00DA0CC8 /* LocationStoreWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		CAA9CB052145A7C600DA0CC8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CAA9CB062145A7DB00DA0CC8 /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,6 +246,7 @@
 				CA6AF939214438EE00D068E2 /* Sources */,
 				CA6AF93A214438EE00D068E2 /* Frameworks */,
 				CA6AF93B214438EE00D068E2 /* Resources */,
+				BAE982EFA2D429397AC39793 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,7 +265,6 @@
 				CA6AF94D214438F600D068E2 /* Sources */,
 				CA6AF94E214438F600D068E2 /* Frameworks */,
 				CA6AF94F214438F600D068E2 /* Resources */,
-				813DF4E273CEC5EC1881C493 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -314,26 +336,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		813DF4E273CEC5EC1881C493 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FaceGPSTests/Pods-FaceGPSTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftLocation/SwiftLocation.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLocation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FaceGPSTests/Pods-FaceGPSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B8E2E85B9E6723538677C60E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -350,6 +352,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAE982EFA2D429397AC39793 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FaceGPS/Pods-FaceGPS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftLocation/SwiftLocation.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLocation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FaceGPS/Pods-FaceGPS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CF0AD2FDF3362818CEAC480B /* [CP] Check Pods Manifest.lock */ = {
@@ -381,6 +403,7 @@
 				CA6AF97C2144CF5F00D068E2 /* HomeRouter.swift in Sources */,
 				CA6AF96C214449C900D068E2 /* FaceDetectionInteractor.swift in Sources */,
 				CA6AF97F2144CF5F00D068E2 /* HomeInteractor.swift in Sources */,
+				CAA9CB072145A7DB00DA0CC8 /* Location.swift in Sources */,
 				CA6AF967214449C900D068E2 /* FaceDetectionPresenter.swift in Sources */,
 				CA6AF97A2144CF5F00D068E2 /* HomePresenter.swift in Sources */,
 				CA6AF97E2144CF5F00D068E2 /* HomeViewController.swift in Sources */,
@@ -388,6 +411,7 @@
 				CA6AF96F2144A7FE00D068E2 /* AppModel.swift in Sources */,
 				CA6AF96A214449C900D068E2 /* FaceDetectionModels.swift in Sources */,
 				CA6AF968214449C900D068E2 /* FaceDetectionWorker.swift in Sources */,
+				CAA9CB042145A62E00DA0CC8 /* LocationStoreWorker.swift in Sources */,
 				CA6AF969214449C900D068E2 /* FaceDetectionRouter.swift in Sources */,
 				CA6AF9832145825600D068E2 /* Notificationable.swift in Sources */,
 				CA6AF9712144A9BB00D068E2 /* Errors.swift in Sources */,

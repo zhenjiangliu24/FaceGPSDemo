@@ -14,18 +14,18 @@ import UIKit
 
 protocol HomePresentationLogic
 {
-  func presentSomething(response: Home.Something.Response)
+    func presentRequestLocation(response: Home.RequestLocationPermission.Response)
 }
 
 class HomePresenter: HomePresentationLogic
 {
-  weak var viewController: HomeDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: Home.Something.Response)
-  {
-    let viewModel = Home.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    weak var viewController: HomeDisplayLogic?
+    
+    // MARK: Do something
+    
+    func presentRequestLocation(response: Home.RequestLocationPermission.Response)
+    {
+        let viewModel = Home.RequestLocationPermission.ViewModel()
+        viewController?.displayLocationPermission(viewModel: viewModel)
+    }
 }

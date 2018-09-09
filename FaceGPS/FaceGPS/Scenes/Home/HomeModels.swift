@@ -14,18 +14,33 @@ import UIKit
 
 enum Home
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
+    // MARK: Use cases
+    
+    enum RequestLocationPermission
     {
+        struct Request
+        {
+        }
+        struct Response
+        {
+        }
+        struct ViewModel
+        {
+        }
     }
-    struct Response
+    
+    enum SubscribContinuousLocation
     {
+        struct Request {
+            
+        }
+        
+        struct Response {
+            
+        }
+        
+        struct ViewModel {
+            
+        }
     }
-    struct ViewModel
-    {
-    }
-  }
 }

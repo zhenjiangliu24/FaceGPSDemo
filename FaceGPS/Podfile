@@ -1,14 +1,13 @@
-# platform :ios, '9.0'
+# platform :ios, '11.0'
 
 target 'FaceGPS' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for FaceGPS
+  pod 'SwiftLocation', '~> 3.2.3'
 
   target 'FaceGPSTests' do
     inherit! :search_paths
-    pod 'SwiftLocation', '~> 3.2.3'
     # Pods for testing
   end
 

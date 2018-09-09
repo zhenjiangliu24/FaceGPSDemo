@@ -9,12 +9,22 @@
 //  you can apply clean architecture to your iOS and Mac projects,
 //  see http://clean-swift.com
 //
+import SwiftLocation
+import CoreLocation
 
-import UIKit
+typealias locationUpdateHandler = (CLLocation) -> Void
+typealias locationErrorHandler = (LocationError, CLLocation?) -> Void
 
 class HomeWorker
 {
-  func doSomeWork()
-  {
-  }
+    func requestPermission()
+    {
+        Locator.requestAuthorizationIfNeeded(.always)
+    }
+    
+    func subscribeContinuousLocation(onUpdate: @escaping locationUpdateHandler,
+                                     onFail: @escaping locationErrorHandler)
+    {
+        Locator.subscribePosition(accuracy: .any, onUpdate: onUpdate, onFail: onFail)
+    }
 }

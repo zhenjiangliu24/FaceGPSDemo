@@ -43,5 +43,9 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>This demo need to access the camera</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This demo always use device location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This demo use location when needed</string>
 </dict>
 </plist>

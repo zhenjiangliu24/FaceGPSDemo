@@ -14,7 +14,7 @@ import UIKit
 
 protocol HomeDisplayLogic: class
 {
-    func displaySomething(viewModel: Home.Something.ViewModel)
+    func displayLocationPermission(viewModel: Home.RequestLocationPermission.ViewModel)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic
@@ -73,20 +73,28 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        doSomething()
+        
+        requestLocationPermission()
+        
+        listenToLocationChange()
     }
     
-    // MARK: Do something
+    // MARK: Location action
     
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething()
+    func requestLocationPermission()
     {
-        let request = Home.Something.Request()
-        interactor?.doSomething(request: request)
+        let request = Home.RequestLocationPermission.Request()
+        interactor?.requestLocationPermission(request: request)
     }
     
-    func displaySomething(viewModel: Home.Something.ViewModel)
+    func listenToLocationChange()
+    {
+        let request = Home.SubscribContinuousLocation.Request()
+        interactor?.subscribLocation(request: request)
+    }
+    
+    // MARK: HomeDisplayLogic
+    func displayLocationPermission(viewModel: Home.RequestLocationPermission.ViewModel)
     {
         //nameTextField.text = viewModel.name
     }

@@ -14,28 +14,38 @@ import UIKit
 
 protocol HomeBusinessLogic
 {
-  func doSomething(request: Home.Something.Request)
+    func requestLocationPermission(request: Home.RequestLocationPermission.Request)
+    func subscribLocation(request: Home.SubscribContinuousLocation.Request)
 }
 
 protocol HomeDataStore
 {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore
 {
-  var presenter: HomePresentationLogic?
-  var worker: HomeWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Home.Something.Request)
-  {
-    worker = HomeWorker()
-    worker?.doSomeWork()
+    var presenter: HomePresentationLogic?
+    var worker: HomeWorker?
+    //var name: String = ""
     
-    let response = Home.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: Do something
+    
+    func requestLocationPermission(request: Home.RequestLocationPermission.Request)
+    {
+        worker = HomeWorker()
+        worker?.requestPermission()
+        
+        let response = Home.RequestLocationPermission.Response()
+        presenter?.presentRequestLocation(response: response)
+    }
+    
+    func subscribLocation(request: Home.SubscribContinuousLocation.Request)
+    {
+        worker?.subscribeContinuousLocation(onUpdate: { (location) in
+            
+        }, onFail: { (error, location) in
+            
+        })
+    }
 }

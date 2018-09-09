@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "39D9CB1835D53C712501405FF86B4F7C"
+               BlueprintIdentifier = "E9FEBD7D9673700BB283CBFDD0C8AD43"
                BuildableName = "Pods_FaceGPS.framework"
                BlueprintName = "Pods-FaceGPS"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "39D9CB1835D53C712501405FF86B4F7C"
+            BlueprintIdentifier = "E9FEBD7D9673700BB283CBFDD0C8AD43"
             BuildableName = "Pods_FaceGPS.framework"
             BlueprintName = "Pods-FaceGPS"
             ReferencedContainer = "container:Pods.xcodeproj">
