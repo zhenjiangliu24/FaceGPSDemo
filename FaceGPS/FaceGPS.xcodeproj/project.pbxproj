@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D9BB47F6909ED49F832600E /* Pods_FaceGPS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB70F6C21F8EB2373880C2FB /* Pods_FaceGPS.framework */; };
+		A71D6BF4A422D87C9A9E2A4F /* Pods_FaceGPSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4469F39C9432493F0B08E9 /* Pods_FaceGPSTests.framework */; };
+		CA050FF221459D4E00B3ED1F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CA050FF121459D4D00B3ED1F /* Podfile */; };
 		CA6AF941214438EF00D068E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF940214438EF00D068E2 /* AppDelegate.swift */; };
 		CA6AF946214438EF00D068E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6AF944214438EF00D068E2 /* Main.storyboard */; };
 		CA6AF948214438F500D068E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA6AF947214438F500D068E2 /* Assets.xcassets */; };
@@ -40,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E97EC14A8F0DCE9B0C27312 /* Pods-FaceGPS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceGPS.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceGPS/Pods-FaceGPS.release.xcconfig"; sourceTree = "<group>"; };
+		53506E54F672BB7819297B4D /* Pods-FaceGPS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceGPS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceGPS/Pods-FaceGPS.debug.xcconfig"; sourceTree = "<group>"; };
+		582E9470E140B3CA61C1E14C /* Pods-FaceGPSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceGPSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceGPSTests/Pods-FaceGPSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6F5FB83B3D1448B07E3F108D /* Pods-FaceGPSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceGPSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceGPSTests/Pods-FaceGPSTests.release.xcconfig"; sourceTree = "<group>"; };
+		CA050FF121459D4D00B3ED1F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CA4469F39C9432493F0B08E9 /* Pods_FaceGPSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceGPSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6AF93D214438EF00D068E2 /* FaceGPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceGPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6AF940214438EF00D068E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA6AF945214438EF00D068E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +73,7 @@
 		CA6AF9782144CF5F00D068E2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CA6AF9792144CF5F00D068E2 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		CA6AF9822145825600D068E2 /* Notificationable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificationable.swift; sourceTree = "<group>"; };
+		DB70F6C21F8EB2373880C2FB /* Pods_FaceGPS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceGPS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9BB47F6909ED49F832600E /* Pods_FaceGPS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,18 +89,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A71D6BF4A422D87C9A9E2A4F /* Pods_FaceGPSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BC9351BC50DA8E5223E7DAB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB70F6C21F8EB2373880C2FB /* Pods_FaceGPS.framework */,
+				CA4469F39C9432493F0B08E9 /* Pods_FaceGPSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3018587D7011EF96D616B21 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53506E54F672BB7819297B4D /* Pods-FaceGPS.debug.xcconfig */,
+				4E97EC14A8F0DCE9B0C27312 /* Pods-FaceGPS.release.xcconfig */,
+				582E9470E140B3CA61C1E14C /* Pods-FaceGPSTests.debug.xcconfig */,
+				6F5FB83B3D1448B07E3F108D /* Pods-FaceGPSTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CA6AF934214438EE00D068E2 = {
 			isa = PBXGroup;
 			children = (
+				CA050FF121459D4D00B3ED1F /* Podfile */,
 				CA6AF93F214438EF00D068E2 /* FaceGPS */,
 				CA6AF954214438F600D068E2 /* FaceGPSTests */,
 				CA6AF93E214438EF00D068E2 /* Products */,
+				B3018587D7011EF96D616B21 /* Pods */,
+				7BC9351BC50DA8E5223E7DAB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +220,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA6AF95A214438F600D068E2 /* Build configuration list for PBXNativeTarget "FaceGPS" */;
 			buildPhases = (
+				CF0AD2FDF3362818CEAC480B /* [CP] Check Pods Manifest.lock */,
 				CA6AF939214438EE00D068E2 /* Sources */,
 				CA6AF93A214438EE00D068E2 /* Frameworks */,
 				CA6AF93B214438EE00D068E2 /* Resources */,
@@ -202,9 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA6AF95D214438F600D068E2 /* Build configuration list for PBXNativeTarget "FaceGPSTests" */;
 			buildPhases = (
+				B8E2E85B9E6723538677C60E /* [CP] Check Pods Manifest.lock */,
 				CA6AF94D214438F600D068E2 /* Sources */,
 				CA6AF94E214438F600D068E2 /* Frameworks */,
 				CA6AF94F214438F600D068E2 /* Resources */,
+				813DF4E273CEC5EC1881C493 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,6 +299,7 @@
 			files = (
 				CA6AF94B214438F500D068E2 /* LaunchScreen.storyboard in Resources */,
 				CA6AF948214438F500D068E2 /* Assets.xcassets in Resources */,
+				CA050FF221459D4E00B3ED1F /* Podfile in Resources */,
 				CA6AF946214438EF00D068E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +312,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		813DF4E273CEC5EC1881C493 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FaceGPSTests/Pods-FaceGPSTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftLocation/SwiftLocation.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLocation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FaceGPSTests/Pods-FaceGPSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8E2E85B9E6723538677C60E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FaceGPSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF0AD2FDF3362818CEAC480B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FaceGPS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CA6AF939214438EE00D068E2 /* Sources */ = {
@@ -452,6 +550,7 @@
 		};
 		CA6AF95B214438F600D068E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53506E54F672BB7819297B4D /* Pods-FaceGPS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -471,6 +570,7 @@
 		};
 		CA6AF95C214438F600D068E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E97EC14A8F0DCE9B0C27312 /* Pods-FaceGPS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -490,6 +590,7 @@
 		};
 		CA6AF95E214438F600D068E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 582E9470E140B3CA61C1E14C /* Pods-FaceGPSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +612,7 @@
 		};
 		CA6AF95F214438F600D068E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F5FB83B3D1448B07E3F108D /* Pods-FaceGPSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
