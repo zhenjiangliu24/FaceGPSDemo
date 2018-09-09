@@ -17,6 +17,7 @@ protocol FaceDetectionBusinessLogic
     func setupCapture(request: FaceDetection.SetUpFaceCaptureSession.Request)
     func setupVision(request: FaceDetection.PrepareVision.Request)
     func startCapture(request: FaceDetection.startFaceCaptureAndDetection.Request)
+    func stopCapture(request: FaceDetection.stopFaceCaptureAndDection.Request)
 }
 
 protocol FaceDetectionDataStore
@@ -52,5 +53,10 @@ class FaceDetectionInteractor: FaceDetectionBusinessLogic, FaceDetectionDataStor
     func startCapture(request: FaceDetection.startFaceCaptureAndDetection.Request)
     {
         worker?.startCaptureFace()
+    }
+    
+    func stopCapture(request: FaceDetection.stopFaceCaptureAndDection.Request)
+    {
+        worker?.stopCaptureFace()
     }
 }

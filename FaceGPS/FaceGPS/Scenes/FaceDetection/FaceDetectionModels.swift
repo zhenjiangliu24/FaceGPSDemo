@@ -67,4 +67,19 @@ enum FaceDetection
             
         }
     }
+    
+    enum stopFaceCaptureAndDection
+    {
+        struct Request {
+            
+        }
+        
+        struct Response {
+            
+        }
+        
+        struct ViewModel {
+            
+        }
+    }
 }

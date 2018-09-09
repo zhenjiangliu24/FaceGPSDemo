@@ -20,6 +20,12 @@
 		CA6AF96C214449C900D068E2 /* FaceDetectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF966214449C900D068E2 /* FaceDetectionInteractor.swift */; };
 		CA6AF96F2144A7FE00D068E2 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF96E2144A7FE00D068E2 /* AppModel.swift */; };
 		CA6AF9712144A9BB00D068E2 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9702144A9BB00D068E2 /* Errors.swift */; };
+		CA6AF97A2144CF5F00D068E2 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9742144CF5F00D068E2 /* HomePresenter.swift */; };
+		CA6AF97B2144CF5F00D068E2 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9752144CF5F00D068E2 /* HomeWorker.swift */; };
+		CA6AF97C2144CF5F00D068E2 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9762144CF5F00D068E2 /* HomeRouter.swift */; };
+		CA6AF97D2144CF5F00D068E2 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9772144CF5F00D068E2 /* HomeModels.swift */; };
+		CA6AF97E2144CF5F00D068E2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9782144CF5F00D068E2 /* HomeViewController.swift */; };
+		CA6AF97F2144CF5F00D068E2 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9792144CF5F00D068E2 /* HomeInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +56,12 @@
 		CA6AF966214449C900D068E2 /* FaceDetectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionInteractor.swift; sourceTree = "<group>"; };
 		CA6AF96E2144A7FE00D068E2 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		CA6AF9702144A9BB00D068E2 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		CA6AF9742144CF5F00D068E2 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		CA6AF9752144CF5F00D068E2 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		CA6AF9762144CF5F00D068E2 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		CA6AF9772144CF5F00D068E2 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		CA6AF9782144CF5F00D068E2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CA6AF9792144CF5F00D068E2 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +126,8 @@
 		CA6AF9602144498200D068E2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				CA6AF961214449C900D068E2 /* FaceDetectionPresenter.swift */,
-				CA6AF962214449C900D068E2 /* FaceDetectionWorker.swift */,
-				CA6AF963214449C900D068E2 /* FaceDetectionRouter.swift */,
-				CA6AF964214449C900D068E2 /* FaceDetectionModels.swift */,
-				CA6AF965214449C900D068E2 /* FaceDetectionViewController.swift */,
-				CA6AF966214449C900D068E2 /* FaceDetectionInteractor.swift */,
+				CA6AF9732144CF3E00D068E2 /* Home */,
+				CA6AF9722144CF2D00D068E2 /* FaceDetection */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -131,6 +139,32 @@
 				CA6AF9702144A9BB00D068E2 /* Errors.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		CA6AF9722144CF2D00D068E2 /* FaceDetection */ = {
+			isa = PBXGroup;
+			children = (
+				CA6AF961214449C900D068E2 /* FaceDetectionPresenter.swift */,
+				CA6AF962214449C900D068E2 /* FaceDetectionWorker.swift */,
+				CA6AF963214449C900D068E2 /* FaceDetectionRouter.swift */,
+				CA6AF964214449C900D068E2 /* FaceDetectionModels.swift */,
+				CA6AF965214449C900D068E2 /* FaceDetectionViewController.swift */,
+				CA6AF966214449C900D068E2 /* FaceDetectionInteractor.swift */,
+			);
+			path = FaceDetection;
+			sourceTree = "<group>";
+		};
+		CA6AF9732144CF3E00D068E2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CA6AF9742144CF5F00D068E2 /* HomePresenter.swift */,
+				CA6AF9752144CF5F00D068E2 /* HomeWorker.swift */,
+				CA6AF9762144CF5F00D068E2 /* HomeRouter.swift */,
+				CA6AF9772144CF5F00D068E2 /* HomeModels.swift */,
+				CA6AF9782144CF5F00D068E2 /* HomeViewController.swift */,
+				CA6AF9792144CF5F00D068E2 /* HomeInteractor.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,14 +269,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA6AF941214438EF00D068E2 /* AppDelegate.swift in Sources */,
+				CA6AF97C2144CF5F00D068E2 /* HomeRouter.swift in Sources */,
 				CA6AF96C214449C900D068E2 /* FaceDetectionInteractor.swift in Sources */,
+				CA6AF97F2144CF5F00D068E2 /* HomeInteractor.swift in Sources */,
 				CA6AF967214449C900D068E2 /* FaceDetectionPresenter.swift in Sources */,
+				CA6AF97A2144CF5F00D068E2 /* HomePresenter.swift in Sources */,
+				CA6AF97E2144CF5F00D068E2 /* HomeViewController.swift in Sources */,
+				CA6AF97B2144CF5F00D068E2 /* HomeWorker.swift in Sources */,
 				CA6AF96F2144A7FE00D068E2 /* AppModel.swift in Sources */,
 				CA6AF96A214449C900D068E2 /* FaceDetectionModels.swift in Sources */,
 				CA6AF968214449C900D068E2 /* FaceDetectionWorker.swift in Sources */,
 				CA6AF969214449C900D068E2 /* FaceDetectionRouter.swift in Sources */,
 				CA6AF9712144A9BB00D068E2 /* Errors.swift in Sources */,
 				CA6AF96B214449C900D068E2 /* FaceDetectionViewController.swift in Sources */,
+				CA6AF97D2144CF5F00D068E2 /* HomeModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

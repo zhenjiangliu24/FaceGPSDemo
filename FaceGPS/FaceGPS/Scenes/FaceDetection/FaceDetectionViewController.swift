@@ -98,6 +98,13 @@ class FaceDetectionViewController: UIViewController, FaceDetectionDisplayLogic
         startCapture()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stopCapture()
+    }
+    
+    
     // MARK: Set up capture session
     
     func setupCaptureSession()
@@ -116,6 +123,12 @@ class FaceDetectionViewController: UIViewController, FaceDetectionDisplayLogic
     {
         let request = FaceDetection.startFaceCaptureAndDetection.Request()
         interactor?.startCapture(request: request)
+    }
+    
+    func stopCapture()
+    {
+        let request = FaceDetection.stopFaceCaptureAndDection.Request()
+        interactor?.stopCapture(request: request)
     }
     
     // MARK: FaceDetectionDisplayLogic
