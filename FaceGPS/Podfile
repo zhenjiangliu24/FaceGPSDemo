@@ -5,6 +5,7 @@ target 'FaceGPS' do
   use_frameworks!
 
   pod 'SwiftLocation', '~> 3.2.3'
+  pod 'RealmSwift'
 
   target 'FaceGPSTests' do
     inherit! :search_paths
