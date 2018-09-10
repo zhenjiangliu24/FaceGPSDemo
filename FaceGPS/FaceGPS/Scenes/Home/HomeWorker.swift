@@ -25,7 +25,7 @@ class HomeWorker
     func subscribeContinuousLocation(onUpdate: @escaping locationUpdateHandler,
                                      onFail: @escaping locationErrorHandler)
     {
-        Locator.subscribePosition(accuracy: .house, onUpdate: onUpdate, onFail: onFail)
+        Locator.subscribeSignificantLocations(onUpdate: onUpdate, onFail: onFail)
     }
     
 }
