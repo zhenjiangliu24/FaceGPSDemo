@@ -15,6 +15,8 @@ import UIKit
 protocol HomePresentationLogic
 {
     func presentRequestLocation(response: Home.RequestLocationPermission.Response)
+    func presentContinuousLocationUpdate(response: Home.SubscribContinuousLocation.Response)
+    func presentRemoveAllLocations(response: Home.RemoveAllLocations.Response)
 }
 
 class HomePresenter: HomePresentationLogic
@@ -27,5 +29,17 @@ class HomePresenter: HomePresentationLogic
     {
         let viewModel = Home.RequestLocationPermission.ViewModel()
         viewController?.displayLocationPermission(viewModel: viewModel)
+    }
+    
+    func presentContinuousLocationUpdate(response: Home.SubscribContinuousLocation.Response)
+    {
+        let viewModel = Home.SubscribContinuousLocation.ViewModel(locations: response.locations, error: response.error)
+        viewController?.displayContinuousLocationUpdate(viewModel: viewModel)
+    }
+    
+    func presentRemoveAllLocations(response: Home.RemoveAllLocations.Response)
+    {
+        let viewModel = Home.RemoveAllLocations.ViewModel(removedCount: response.removedCount)
+        viewController?.displayRemoveAllLocations(viewModel: viewModel)
     }
 }

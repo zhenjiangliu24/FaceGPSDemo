@@ -37,12 +37,13 @@ enum LocationStoreResult<U>
 typealias createLocationCompleteHandler = (LocationStoreResult<Location>) -> Void
 typealias fetchLocationCompleteHandler = (LocationStoreResult<Location>) -> Void
 typealias fetchLocationsCompleteHandler = (LocationStoreResult<[Location]>) -> Void
-typealias deleteLocationCompleteHandler = (LocationStoreResult<Location>) -> Void
+typealias deleteLocationsCompleteHandler = (LocationStoreResult<[Location]>) -> Void
 
 protocol LocationStoreProtocol {
     func createLocation(locationToCreate: Location, complete: @escaping createLocationCompleteHandler)
     func fetchUnexportedLocations(complete: @escaping fetchLocationsCompleteHandler)
-    func deleteLocation(complete: @escaping deleteLocationCompleteHandler)
+    func deleteExportedLocation(complete: @escaping deleteLocationsCompleteHandler)
+    func detectAllLocations(complete: @escaping deleteLocationsCompleteHandler)
 }
 
 // MARK: Location store worker
@@ -64,8 +65,13 @@ class LocationStoreWorker
         store.fetchUnexportedLocations(complete: complete)
     }
     
-    func deleteLocation(complete: @escaping deleteLocationCompleteHandler)
+    func deleteLocation(complete: @escaping deleteLocationsCompleteHandler)
     {
-        store.deleteLocation(complete: complete)
+        store.deleteExportedLocation(complete: complete)
+    }
+    
+    func detectAllLocations(complete: @escaping deleteLocationsCompleteHandler)
+    {
+        store.detectAllLocations(complete: complete)
     }
 }

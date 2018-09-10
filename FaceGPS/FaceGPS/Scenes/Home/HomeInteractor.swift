@@ -16,6 +16,7 @@ protocol HomeBusinessLogic
 {
     func requestLocationPermission(request: Home.RequestLocationPermission.Request)
     func subscribLocation(request: Home.SubscribContinuousLocation.Request)
+    func removeAllLocations(request: Home.RemoveAllLocations.Request)
 }
 
 protocol HomeDataStore
@@ -27,9 +28,9 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore
 {
     var presenter: HomePresentationLogic?
     var worker: HomeWorker?
-    //var name: String = ""
+    var locationsWorker = LocationStoreWorker(store: DBWorker())
     
-    // MARK: Do something
+    // MARK: business logic
     
     func requestLocationPermission(request: Home.RequestLocationPermission.Request)
     {
@@ -42,10 +43,36 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore
     
     func subscribLocation(request: Home.SubscribContinuousLocation.Request)
     {
-        worker?.subscribeContinuousLocation(onUpdate: { (location) in
-            
+        worker?.subscribeContinuousLocation(onUpdate: { [weak self] (loc) in
+            let location = loc.toLocation()
+            self?.locationsWorker.createLocation(locationToCreate: location, complete: { result in
+                switch result {
+                case .Success(let location):
+                    // TODO:
+                    let response = Home.SubscribContinuousLocation.Response(locations: [location], error: nil)
+                    self?.presenter?.presentContinuousLocationUpdate(response: response)
+                case .Failure(let error):
+                    // TODO: 
+                    let response = Home.SubscribContinuousLocation.Response(locations: [], error: error)
+                    self?.presenter?.presentContinuousLocationUpdate(response: response)
+                }
+            })
         }, onFail: { (error, location) in
             
         })
+    }
+    
+    func removeAllLocations(request: Home.RemoveAllLocations.Request)
+    {
+        locationsWorker.detectAllLocations { [weak self] result in
+            switch result {
+            case.Success(result: let locations):
+                let response = Home.RemoveAllLocations.Response(removedCount: locations.count)
+                self?.presenter?.presentRemoveAllLocations(response: response)
+            case .Failure(error: let error):
+                let response = Home.RemoveAllLocations.Response(removedCount: 0)
+                self?.presenter?.presentRemoveAllLocations(response: response)
+            }
+        }
     }
 }

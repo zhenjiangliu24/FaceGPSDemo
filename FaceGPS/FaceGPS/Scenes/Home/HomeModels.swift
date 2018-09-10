@@ -36,11 +36,28 @@ enum Home
         }
         
         struct Response {
-            
+            var locations: [Location]
+            var error: Error?
         }
         
         struct ViewModel {
+            var locations: [Location]
+            var error: Error?
+        }
+    }
+    
+    enum RemoveAllLocations
+    {
+        struct Request {
             
+        }
+        
+        struct Response {
+            var removedCount: Int
+        }
+        
+        struct ViewModel {
+            var removedCount: Int
         }
     }
 }

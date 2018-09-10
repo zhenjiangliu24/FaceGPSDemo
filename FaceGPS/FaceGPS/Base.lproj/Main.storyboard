@@ -19,11 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jq2-fE-hqN">
-                                <rect key="frame" x="72.5" y="324" width="230" height="83"/>
+                                <rect key="frame" x="-0.5" y="584" width="375" height="83"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="4rQ-xn-NST"/>
-                                    <constraint firstAttribute="width" constant="230" id="lki-m2-AKI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Start face detection">
@@ -34,15 +33,27 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="FaceDetection" id="pTv-Hk-QUA"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q1B-cZ-IMT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="523"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Q1B-cZ-IMT" firstAttribute="width" secondItem="Se9-jZ-QX1" secondAttribute="width" id="7IY-0y-kMy"/>
+                            <constraint firstItem="jq2-fE-hqN" firstAttribute="width" secondItem="Se9-jZ-QX1" secondAttribute="width" id="9CD-Oy-Zwz"/>
+                            <constraint firstItem="Q1B-cZ-IMT" firstAttribute="top" secondItem="TKW-md-fIx" secondAttribute="top" id="MID-VC-EdI"/>
                             <constraint firstItem="jq2-fE-hqN" firstAttribute="centerX" secondItem="TKW-md-fIx" secondAttribute="centerX" id="QXa-UB-mEN"/>
-                            <constraint firstItem="jq2-fE-hqN" firstAttribute="centerY" secondItem="TKW-md-fIx" secondAttribute="centerY" id="pCG-q8-ufC"/>
+                            <constraint firstItem="TKW-md-fIx" firstAttribute="bottom" secondItem="jq2-fE-hqN" secondAttribute="bottom" id="gIO-ua-yOh"/>
+                            <constraint firstItem="Q1B-cZ-IMT" firstAttribute="centerX" secondItem="TKW-md-fIx" secondAttribute="centerX" id="ino-oV-kZf"/>
+                            <constraint firstItem="jq2-fE-hqN" firstAttribute="top" secondItem="Q1B-cZ-IMT" secondAttribute="bottom" constant="-3" id="mSs-Uz-Irw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TKW-md-fIx"/>
                     </view>
                     <navigationItem key="navigationItem" id="IQk-ud-gFN"/>
+                    <connections>
+                        <outlet property="tableView" destination="Q1B-cZ-IMT" id="SwO-ap-pNU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2XS-oo-8fu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

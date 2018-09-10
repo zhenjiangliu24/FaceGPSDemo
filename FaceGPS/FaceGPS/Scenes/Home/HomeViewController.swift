@@ -15,12 +15,16 @@ import UIKit
 protocol HomeDisplayLogic: class
 {
     func displayLocationPermission(viewModel: Home.RequestLocationPermission.ViewModel)
+    func displayContinuousLocationUpdate(viewModel: Home.SubscribContinuousLocation.ViewModel)
+    func displayRemoveAllLocations(viewModel: Home.RemoveAllLocations.ViewModel)
 }
 
-class HomeViewController: UIViewController, HomeDisplayLogic
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, HomeDisplayLogic
 {
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    
+    var locations: [Location] = []
     
     // MARK: Object lifecycle
     
@@ -52,9 +56,35 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         router.dataStore = interactor
     }
     
+    @IBOutlet weak var tableView: UITableView!
     // MARK: IBActions
     @IBAction func startFaceDetectionButtonTapped(_ sender: UIButton) {
         
+    }
+    
+    func registerCellTypes(_ types: [BaseTableViewCell.Type]) {
+        tableView.registerCellTypes(types)
+    }
+    
+    // MARK: UITableViewDelegate
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return locations.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // MARK: UITableViewDataSource
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.cellType, for: indexPath)
+        if let cell = cell as? LocationTableViewCell {
+            cell.configCell(location: locations[indexPath.row])
+        }
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return LocationTableViewCell.cellHeight
     }
     // MARK: Routing
     
@@ -74,9 +104,24 @@ class HomeViewController: UIViewController, HomeDisplayLogic
     {
         super.viewDidLoad()
         
+        setupTableview()
+        
+        registerCellTypes([LocationTableViewCell.self])
+        
         requestLocationPermission()
         
         listenToLocationChange()
+        
+        //setupLocationObserver()
+    }
+    
+    func setupTableview()
+    {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        // TODO: remove me
+        removeAllLocations()
     }
     
     // MARK: Location action
@@ -93,9 +138,25 @@ class HomeViewController: UIViewController, HomeDisplayLogic
         interactor?.subscribLocation(request: request)
     }
     
+    func removeAllLocations()
+    {
+        let request = Home.RemoveAllLocations.Request()
+        interactor?.removeAllLocations(request: request)
+    }
+    
     // MARK: HomeDisplayLogic
     func displayLocationPermission(viewModel: Home.RequestLocationPermission.ViewModel)
     {
-        //nameTextField.text = viewModel.name
+    }
+    
+    func displayContinuousLocationUpdate(viewModel: Home.SubscribContinuousLocation.ViewModel)
+    {
+        locations.append(contentsOf: viewModel.locations)
+        tableView.reloadData()
+    }
+    
+    func displayRemoveAllLocations(viewModel: Home.RemoveAllLocations.ViewModel)
+    {
+        
     }
 }

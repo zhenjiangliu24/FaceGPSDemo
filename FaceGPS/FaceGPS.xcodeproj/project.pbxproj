@@ -32,6 +32,14 @@
 		CA6AF9832145825600D068E2 /* Notificationable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6AF9822145825600D068E2 /* Notificationable.swift */; };
 		CAA9CB042145A62E00DA0CC8 /* LocationStoreWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB032145A62E00DA0CC8 /* LocationStoreWorker.swift */; };
 		CAA9CB072145A7DB00DA0CC8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB062145A7DB00DA0CC8 /* Location.swift */; };
+		CAA9CB0F2145B09500DA0CC8 /* RLMLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB0E2145B09500DA0CC8 /* RLMLocation.swift */; };
+		CAA9CB112145B5F700DA0CC8 /* DBWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB102145B5F700DA0CC8 /* DBWorker.swift */; };
+		CAA9CB142145BCBB00DA0CC8 /* CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB132145BCBB00DA0CC8 /* CLLocation.swift */; };
+		CAA9CB162145BD4100DA0CC8 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB152145BD4100DA0CC8 /* Date.swift */; };
+		CAA9CB192145C42800DA0CC8 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB182145C42800DA0CC8 /* BaseTableViewCell.swift */; };
+		CAA9CB1B2145C45900DA0CC8 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB1A2145C45900DA0CC8 /* UITableView.swift */; };
+		CAA9CB1E2145C48F00DA0CC8 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9CB1C2145C48F00DA0CC8 /* LocationTableViewCell.swift */; };
+		CAA9CB1F2145C48F00DA0CC8 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAA9CB1D2145C48F00DA0CC8 /* LocationTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +85,14 @@
 		CA6AF9822145825600D068E2 /* Notificationable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificationable.swift; sourceTree = "<group>"; };
 		CAA9CB032145A62E00DA0CC8 /* LocationStoreWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStoreWorker.swift; sourceTree = "<group>"; };
 		CAA9CB062145A7DB00DA0CC8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		CAA9CB0E2145B09500DA0CC8 /* RLMLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMLocation.swift; sourceTree = "<group>"; };
+		CAA9CB102145B5F700DA0CC8 /* DBWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBWorker.swift; sourceTree = "<group>"; };
+		CAA9CB132145BCBB00DA0CC8 /* CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocation.swift; sourceTree = "<group>"; };
+		CAA9CB152145BD4100DA0CC8 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		CAA9CB182145C42800DA0CC8 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		CAA9CB1A2145C45900DA0CC8 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		CAA9CB1C2145C48F00DA0CC8 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		CAA9CB1D2145C48F00DA0CC8 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 		DB70F6C21F8EB2373880C2FB /* Pods_FaceGPS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceGPS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,6 +160,9 @@
 		CA6AF93F214438EF00D068E2 /* FaceGPS */ = {
 			isa = PBXGroup;
 			children = (
+				CAA9CB172145C40600DA0CC8 /* UI */,
+				CAA9CB122145BC7E00DA0CC8 /* Extensions */,
+				CAA9CB082145AFED00DA0CC8 /* DataBaseLayer */,
 				CAA9CB052145A7C600DA0CC8 /* Models */,
 				CA6AF9812145824100D068E2 /* Protocols */,
 				CA6AF96D2144A7E100D068E2 /* Common */,
@@ -235,6 +254,43 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		CAA9CB082145AFED00DA0CC8 /* DataBaseLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CAA9CB092145B04400DA0CC8 /* DBModel */,
+				CAA9CB102145B5F700DA0CC8 /* DBWorker.swift */,
+			);
+			path = DataBaseLayer;
+			sourceTree = "<group>";
+		};
+		CAA9CB092145B04400DA0CC8 /* DBModel */ = {
+			isa = PBXGroup;
+			children = (
+				CAA9CB0E2145B09500DA0CC8 /* RLMLocation.swift */,
+			);
+			path = DBModel;
+			sourceTree = "<group>";
+		};
+		CAA9CB122145BC7E00DA0CC8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CAA9CB132145BCBB00DA0CC8 /* CLLocation.swift */,
+				CAA9CB152145BD4100DA0CC8 /* Date.swift */,
+				CAA9CB1A2145C45900DA0CC8 /* UITableView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CAA9CB172145C40600DA0CC8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CAA9CB182145C42800DA0CC8 /* BaseTableViewCell.swift */,
+				CAA9CB1C2145C48F00DA0CC8 /* LocationTableViewCell.swift */,
+				CAA9CB1D2145C48F00DA0CC8 /* LocationTableViewCell.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,6 +344,7 @@
 				TargetAttributes = {
 					CA6AF93C214438EE00D068E2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					CA6AF950214438F600D068E2 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -323,6 +380,7 @@
 				CA6AF948214438F500D068E2 /* Assets.xcassets in Resources */,
 				CA050FF221459D4E00B3ED1F /* Podfile in Resources */,
 				CA6AF946214438EF00D068E2 /* Main.storyboard in Resources */,
+				CAA9CB1F2145C48F00DA0CC8 /* LocationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,21 +462,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA6AF941214438EF00D068E2 /* AppDelegate.swift in Sources */,
+				CAA9CB112145B5F700DA0CC8 /* DBWorker.swift in Sources */,
 				CA6AF97C2144CF5F00D068E2 /* HomeRouter.swift in Sources */,
+				CAA9CB142145BCBB00DA0CC8 /* CLLocation.swift in Sources */,
 				CA6AF96C214449C900D068E2 /* FaceDetectionInteractor.swift in Sources */,
+				CAA9CB1B2145C45900DA0CC8 /* UITableView.swift in Sources */,
 				CA6AF97F2144CF5F00D068E2 /* HomeInteractor.swift in Sources */,
 				CAA9CB072145A7DB00DA0CC8 /* Location.swift in Sources */,
 				CA6AF967214449C900D068E2 /* FaceDetectionPresenter.swift in Sources */,
 				CA6AF97A2144CF5F00D068E2 /* HomePresenter.swift in Sources */,
 				CA6AF97E2144CF5F00D068E2 /* HomeViewController.swift in Sources */,
+				CAA9CB0F2145B09500DA0CC8 /* RLMLocation.swift in Sources */,
 				CA6AF97B2144CF5F00D068E2 /* HomeWorker.swift in Sources */,
 				CA6AF96F2144A7FE00D068E2 /* AppModel.swift in Sources */,
 				CA6AF96A214449C900D068E2 /* FaceDetectionModels.swift in Sources */,
 				CA6AF968214449C900D068E2 /* FaceDetectionWorker.swift in Sources */,
+				CAA9CB1E2145C48F00DA0CC8 /* LocationTableViewCell.swift in Sources */,
 				CAA9CB042145A62E00DA0CC8 /* LocationStoreWorker.swift in Sources */,
 				CA6AF969214449C900D068E2 /* FaceDetectionRouter.swift in Sources */,
 				CA6AF9832145825600D068E2 /* Notificationable.swift in Sources */,
 				CA6AF9712144A9BB00D068E2 /* Errors.swift in Sources */,
+				CAA9CB162145BD4100DA0CC8 /* Date.swift in Sources */,
+				CAA9CB192145C42800DA0CC8 /* BaseTableViewCell.swift in Sources */,
 				CA6AF96B214449C900D068E2 /* FaceDetectionViewController.swift in Sources */,
 				CA6AF97D2144CF5F00D068E2 /* HomeModels.swift in Sources */,
 			);
@@ -581,6 +646,7 @@
 			baseConfigurationReference = 53506E54F672BB7819297B4D /* Pods-FaceGPS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8JLCNGAU2F;
 				INFOPLIST_FILE = FaceGPS/Info.plist;
@@ -591,6 +657,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zhenjiang.ios.face-gps-demo.FaceGPS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -601,6 +668,7 @@
 			baseConfigurationReference = 4E97EC14A8F0DCE9B0C27312 /* Pods-FaceGPS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8JLCNGAU2F;
 				INFOPLIST_FILE = FaceGPS/Info.plist;
@@ -611,6 +679,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zhenjiang.ios.face-gps-demo.FaceGPS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceGPS/DataBaseLayer/DBModel/FaceGPS-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
